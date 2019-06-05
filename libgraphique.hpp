@@ -223,7 +223,7 @@ public:
       {
 	if(e.type == SDL_QUIT)
 	  {
-	    this->running = false;
+	    this->stop();
 	  }
 	else
 	  {
@@ -235,6 +235,11 @@ public:
   bool isRunning()
   {
     return this->running;
+  }
+
+  void stop()
+  {
+    this->running = false;
   }
   
   void sleep(int ms)

@@ -7,7 +7,7 @@ LIBS = -lSDL2 -lSDL2_image
 SRC = $(wildcard *.cpp)
 OBJ = $(SRC:%.cpp=%.o)
 
-DEPS = libsdl2-dev libsdl2-image-dev
+DEPS = libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev libsdl2-mixer-dev cmake
 
 COMPILE = $(CC) $(CARGS) $(LIBS)
 NBFILES = $(words $(SRC))
