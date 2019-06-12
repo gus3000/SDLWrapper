@@ -11,7 +11,7 @@ int main()
   const int WIDTH = 640;
   const int HEIGHT = 480;
   
-  SDLManager manager(WIDTH, HEIGHT);
+  SDLManager manager(WIDTH, HEIGHT, "chatons");
 
   int kittens = manager.addImage("kittens.jpeg");
   int speedX = 5, speedY = 5;

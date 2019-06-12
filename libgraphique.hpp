@@ -93,7 +93,7 @@ private:
   }
   
 public:
-     SDLManager(const int WIDTH=640, const int HEIGHT=480, string titre="Sans Titre", bool debug=true) : debug(debug)
+  SDLManager(const int WIDTH=640, const int HEIGHT=480, string titre="Sans Titre", bool debug=true) : debug(debug)
   {
     this->running = true;
     
@@ -209,11 +209,12 @@ public:
     SDL_RenderClear(this->ren);
     for(auto it = this->images.begin(); it != this->images.end(); ++it)
       {
-        SDL_RenderCopy(this->ren, (*it).getTexture(), NULL, (*it).getRect());
+	SDL_RenderCopy(this->ren, (*it).getTexture(), NULL, (*it).getRect());
       }
     SDL_RenderPresent(this->ren);
   }
 
+  /*
   vector<SDL_Event> processInput()
   {
     vector<SDL_Event> v;
@@ -230,7 +231,7 @@ public:
 	    v.push_back(e);
 	  }
       }
-  }
+      } //*/
 
   bool isRunning()
   {
@@ -245,6 +246,11 @@ public:
   void sleep(int ms)
   {
     SDL_Delay(ms);
+  }
+
+  SDL_Renderer* getRenderer()
+  {
+    return this->ren;
   }
 };
 
