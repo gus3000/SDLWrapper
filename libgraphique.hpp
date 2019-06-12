@@ -93,7 +93,7 @@ private:
   }
   
 public:
-  SDLManager(const int WIDTH=640, const int HEIGHT=480, bool debug=true) : debug(debug)
+     SDLManager(const int WIDTH=640, const int HEIGHT=480, string titre="Sans Titre", bool debug=true) : debug(debug)
   {
     this->running = true;
     
@@ -107,7 +107,7 @@ public:
       return;
     }
     
-    this->win = SDL_CreateWindow("Coucou monde", 100, 100, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
+    this->win = SDL_CreateWindow(titre.c_str(), 100, 100, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
     if (win == nullptr){
       logError("Erreur création fenêtre");
       SDL_Quit();

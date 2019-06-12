@@ -30,15 +30,39 @@ int main()
 	{
 	  speedY = -speedY;
 	}
-	 
 
+
+      SDL_Event e;
+      while(SDL_PollEvent(&e))
+	{
+	  if(e.type == SDL_QUIT)
+	    {
+	      cout << "salut" << endl;
+	      return 0;
+	    }
+	  else if(e.type == SDL_KEYDOWN)
+	    {
+	      switch(e.key.keysym.sym)
+		{
+		case SDLK_RIGHT:
+		  cout << "droite" << endl;
+		  break;
+		case SDLK_LEFT:
+		  cout << "gauche" << endl;
+		  break;
+
+		default:
+		  cout << "J'ai pas compris la touche" << endl;
+		}
+	    }
+	}
+      
       x += speedX;
       y += speedY;
 
       manager.setImagePos(kittens, x, y);
       
       manager.draw();
-      manager.processInput();
       manager.sleep(10);
     }
 }
